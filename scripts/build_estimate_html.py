@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Production Scope & Formal Estimate Generator
-GearSignal AI: Modular Social-Listening MVP for Musical Gear Marketplace
-Client: Marketplace Founder (Pine Beach, NJ, USA, EST)
-Fixed-Price Turnkey Delivery: $500.00 (1-2 Weeks)
+Production Scope & Formal Systems Reliability Blueprint Generator
+ScaleOps Core: High-Throughput Distributed Backend Infrastructure & Reliability Cockpit
+Client: Canadian B2B SaaS Founder / CTO (Toronto/Vancouver, Canada)
+Rate: $40.00/hr (20-25 hrs/wk) • Staff Augmentation & Systems Architecture
 Built to exact BarakahSoft Gold-Standard Architecture:
-- 6 Direct Flex Children (Zero Middle Void)
+- 6 Direct Flex Children (Zero Middle Void, 96%-98% Vertical Fill)
 - High-Density 6-Row Scope Table with Percentage Allocations
+- Light Slate Table Headers (#f1f5f9)
 - Verified Upwork Partner Credentials (Never "Top Rated")
 - Dual Signature Block with Formal Authorization
 - Inlined Base64 Assets and Headless Chrome Single-Page PDF Audit
@@ -17,6 +18,7 @@ import re
 import base64
 import subprocess
 import sys
+import shutil
 
 def build_estimate():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -24,6 +26,8 @@ def build_estimate():
     docs_dir = os.path.join(project_dir, "docs")
     html_path = os.path.join(docs_dir, "estimate.html")
     pdf_path = os.path.join(docs_dir, "ESTIMATE.pdf")
+    brief_html_path = os.path.join(docs_dir, "architecture_brief.html")
+    brief_pdf_path = os.path.join(docs_dir, "ARCHITECTURE_BRIEF.pdf")
 
     headshot_file = os.path.join(docs_dir, "headshot.jpeg")
     logo_file = os.path.join(docs_dir, "logo.png")
@@ -38,7 +42,7 @@ def build_estimate():
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Production Scope &amp; Formal Estimate - GearSignal AI Social Listening MVP</title>
+  <title>ScaleOps Core • Systems Reliability Blueprint</title>
   <style>
     @page {{
       size: letter portrait;
@@ -60,7 +64,7 @@ def build_estimate():
       font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #0f172a;
       line-height: 1.32;
-      font-size: 9.3px;
+      font-size: 9.4px;
     }}
 
     .page-container {{
@@ -69,56 +73,56 @@ def build_estimate():
       justify-content: space-between;
       height: 100%;
       box-sizing: border-box;
-      gap: 5px;
+      gap: 6px;
     }}
 
-    /* 1. Executive Header (Compact, Balanced & Zero-Bloat) */
+    /* 1. Executive Header */
     .header {{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      border-bottom: 1.8px solid #059669;
-      padding-bottom: 3.5px;
+      gap: 12px;
+      border-bottom: 2px solid #4338ca;
+      padding-bottom: 6px;
     }}
     .header-left {{
       flex: 1;
       min-width: 0;
     }}
     .brand-title {{
-      font-size: 7.5px;
+      font-size: 8.5px;
       font-weight: 800;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #059669;
-      margin-bottom: 1.5px;
+      color: #4338ca;
+      margin-bottom: 2px;
       white-space: nowrap;
     }}
     h1 {{
-      font-size: 11.5px;
+      font-size: 14px;
       font-weight: 800;
       color: #0f172a;
-      margin: 0 0 1.5px 0;
-      letter-spacing: -0.015em;
-      line-height: 1.15;
+      margin: 0 0 2px 0;
+      letter-spacing: -0.02em;
+      line-height: 1.18;
       white-space: nowrap;
     }}
     .subtitle {{
-      font-size: 7.6px;
+      font-size: 8.6px;
       color: #475569;
       margin: 0;
-      line-height: 1.2;
+      line-height: 1.25;
       white-space: nowrap;
     }}
     .meta-card {{
       flex-shrink: 0;
       background: #f8fafc;
       border: 1px solid #cbd5e1;
-      border-radius: 5px;
-      padding: 3.5px 8px;
-      font-size: 7.6px;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 8.3px;
       text-align: right;
-      line-height: 1.3;
+      line-height: 1.36;
       white-space: nowrap;
     }}
     .meta-card strong {{
@@ -145,15 +149,15 @@ def build_estimate():
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 3px;
+      margin-bottom: 3.5px;
     }}
     .section-title {{
-      font-size: 9.4px;
+      font-size: 9.6px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #0f172a;
-      border-left: 3px solid #059669;
+      border-left: 3px solid #4338ca;
       padding-left: 6px;
       margin: 0;
     }}
@@ -171,34 +175,34 @@ def build_estimate():
       color: #334155;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 8.1px;
+      font-size: 8.2px;
       letter-spacing: 0.04em;
       border: 1px solid #cbd5e1;
-      padding: 3.5px 6px;
+      padding: 3.8px 6px;
       text-align: left;
     }}
     td {{
       border: 1px solid #e2e8f0;
-      padding: 3.5px 6px;
-      font-size: 8.4px;
+      padding: 3.8px 6px;
+      font-size: 8.5px;
       vertical-align: top;
     }}
     .phase-num {{
       font-weight: 800;
       color: #1e293b;
-      font-size: 8.4px;
+      font-size: 8.5px;
       white-space: nowrap;
     }}
     .phase-name {{
       font-weight: 700;
       color: #0f172a;
-      font-size: 8.6px;
+      font-size: 8.8px;
     }}
     .phase-desc {{
       color: #475569;
-      font-size: 7.8px;
+      font-size: 7.9px;
       margin-top: 1px;
-      line-height: 1.2;
+      line-height: 1.22;
     }}
     .phase-0-row {{
       background: #f0fdf4;
@@ -215,29 +219,29 @@ def build_estimate():
     }}
     .total-row td {{
       border: 1px solid #0f172a;
-      padding: 4px 6px;
-      font-size: 8.6px;
+      padding: 4.2px 6px;
+      font-size: 8.8px;
     }}
 
     /* 3. 2-Column Technical & Financial Breakdown */
     .grid-2col {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
+      gap: 7px;
     }}
     .card-box {{
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       background: #f8fafc;
-      padding: 4.5px 8px;
+      padding: 5px 9px;
     }}
     .card-box-title {{
-      font-size: 8.3px;
+      font-size: 8.4px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #0f172a;
-      margin: 0 0 2.5px 0;
+      margin: 0 0 3px 0;
       display: flex;
       align-items: center;
       gap: 4px;
@@ -250,8 +254,8 @@ def build_estimate():
       align-items: center;
       gap: 6px;
       border-bottom: 1px dotted #cbd5e1;
-      padding: 1.8px 0;
-      font-size: 7.7px;
+      padding: 2px 0;
+      font-size: 7.8px;
     }}
     .milestone-item:last-child {{
       border-bottom: none;
@@ -267,12 +271,12 @@ def build_estimate():
       white-space: nowrap;
     }}
     .guardrail-item {{
-      font-size: 7.7px;
+      font-size: 7.8px;
       color: #334155;
-      margin-bottom: 1.8px;
+      margin-bottom: 2px;
       padding-left: 10px;
       position: relative;
-      line-height: 1.2;
+      line-height: 1.22;
     }}
     .guardrail-item:last-child {{
       margin-bottom: 0;
@@ -281,7 +285,7 @@ def build_estimate():
       content: "✓";
       position: absolute;
       left: 0;
-      color: #059669;
+      color: #16a34a;
       font-weight: 800;
       font-size: 7.5px;
     }}
@@ -291,22 +295,22 @@ def build_estimate():
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       background: #ffffff;
-      padding: 4.5px 8px;
+      padding: 5px 9px;
     }}
     .terms-grid {{
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 7px;
+      gap: 8px;
     }}
     .term-col {{
-      font-size: 7.7px;
-      line-height: 1.2;
+      font-size: 7.8px;
+      line-height: 1.22;
     }}
     .term-title {{
       font-weight: 800;
-      color: #059669;
+      color: #4338ca;
       text-transform: uppercase;
-      font-size: 7.6px;
+      font-size: 7.7px;
       margin-bottom: 1px;
     }}
     .term-body {{
@@ -318,15 +322,15 @@ def build_estimate():
       border: 1px solid #94a3b8;
       border-radius: 6px;
       background: #f8fafc;
-      padding: 5px 10px;
+      padding: 6px 11px;
     }}
     .auth-title {{
-      font-size: 8.3px;
+      font-size: 8.4px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #0f172a;
-      margin-bottom: 3px;
+      margin-bottom: 3.5px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -336,45 +340,45 @@ def build_estimate():
     .auth-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 14px;
     }}
     .auth-party {{
       display: flex;
       flex-direction: column;
       gap: 2px;
-      font-size: 7.8px;
+      font-size: 7.9px;
     }}
     .auth-party-title {{
       font-weight: 700;
       color: #334155;
       text-transform: uppercase;
-      font-size: 7.7px;
+      font-size: 7.8px;
       margin-bottom: 1px;
     }}
     .auth-sign-line {{
       display: flex;
       align-items: flex-end;
       gap: 8px;
-      margin-top: 2px;
+      margin-top: 3px;
     }}
     .auth-sign-field {{
       flex: 1;
       border-bottom: 1.2px solid #475569;
-      min-height: 20px;
+      min-height: 22px;
       display: flex;
       align-items: flex-end;
       font-family: "Brush Script MT", "Caveat", cursive, sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       color: #0f172a;
       padding-left: 4px;
       padding-bottom: 1px;
     }}
     .auth-date-field {{
-      width: 85px;
+      width: 90px;
       border-bottom: 1.2px solid #475569;
-      min-height: 20px;
+      min-height: 22px;
       font-family: ui-monospace, monospace;
-      font-size: 7.8px;
+      font-size: 8px;
       color: #334155;
       text-align: center;
       display: flex;
@@ -384,7 +388,7 @@ def build_estimate():
       white-space: nowrap;
     }}
     .auth-label {{
-      font-size: 6.9px;
+      font-size: 7px;
       color: #64748b;
       text-transform: uppercase;
       margin-top: 1.5px;
@@ -395,7 +399,7 @@ def build_estimate():
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       background: #f8fafc;
-      padding: 4.5px 10px;
+      padding: 5px 11px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -404,16 +408,16 @@ def build_estimate():
     .footer-founder {{
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       flex: 1;
       min-width: 0;
     }}
     .founder-avatar {{
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1.5px solid #059669;
+      border: 1.5px solid #4338ca;
       flex-shrink: 0;
     }}
     .founder-info {{
@@ -423,7 +427,7 @@ def build_estimate():
       min-width: 0;
     }}
     .founder-name {{
-      font-size: 8.6px;
+      font-size: 8.8px;
       color: #0f172a;
       line-height: 1.18;
       white-space: nowrap;
@@ -433,7 +437,7 @@ def build_estimate():
       font-weight: 800;
     }}
     .founder-company {{
-      font-size: 7.8px;
+      font-size: 8px;
       color: #334155;
       line-height: 1.18;
       white-space: nowrap;
@@ -443,7 +447,7 @@ def build_estimate():
       font-weight: 700;
     }}
     .founder-sub {{
-      font-size: 7.4px;
+      font-size: 7.5px;
       color: #475569;
       line-height: 1.18;
       white-space: nowrap;
@@ -452,20 +456,20 @@ def build_estimate():
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 2px;
+      gap: 2.5px;
       flex-shrink: 0;
     }}
     .business-logo {{
-      height: 16px;
+      height: 17px;
       width: auto;
       object-fit: contain;
     }}
     .demo-badge {{
-      font-size: 7.5px;
-      color: #059669;
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      padding: 1px 5px;
+      font-size: 7.6px;
+      color: #4338ca;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 1.5px 6px;
       border-radius: 3px;
       font-weight: 700;
       font-family: ui-monospace, monospace;
@@ -480,101 +484,101 @@ def build_estimate():
   <!-- 1. Executive Header -->
   <div class="header">
     <div class="header-left">
-      <div class="brand-title">BarakahSoft LLC • Enterprise Systems Engineering • Ref #BS-2026-GEARSIGNAL-AI</div>
-      <h1>GearSignal AI • Social-Listening MVP</h1>
-      <p class="subtitle">Multi-Platform Monitoring (Reddit/YouTube/Forums) • Centralized No-Code Config • Dual AI (OpenAI+Gemini) • Slack Block Kit</p>
+      <div class="brand-title">BarakahSoft LLC • Systems Architecture • Ref #BS-2026-SCALEOPS</div>
+      <h1>ScaleOps Core • 30-Day Reliability Blueprint</h1>
+      <p class="subtitle">Distributed Ingestion Queues • PostgreSQL 112x Query Speedup • PgBouncer Defense • Sub-500ms AI Gateway</p>
     </div>
     <div class="meta-card">
-      <div><strong>Client:</strong> Custom Musical Gear Marketplace Founder (Pine Beach, NJ)</div>
-      <div><strong>Scope:</strong> Turnkey MVP in Client Account (Make.com or n8n)</div>
-      <div><strong>Investment:</strong> <strong>$500.00 Fixed-Price (Target 1-2 Weeks)</strong></div>
-      <div><strong>Live Cockpit:</strong> <span class="live-badge">Verified &amp; Operational</span></div>
+      <div><strong>Client:</strong> Canadian SaaS Founder / CTO (Toronto/Vancouver)</div>
+      <div><strong>Engagement:</strong> Staff Augmentation • 20–25 Hrs/Wk Available</div>
+      <div><strong>Calibrated Rate:</strong> <strong>$40.00/hr USD (Client Avg $50/hr)</strong></div>
+      <div><strong>Live Prototype:</strong> <span class="live-badge">Verified &amp; Operational</span></div>
     </div>
   </div>
 
   <!-- 2. Scope Table -->
   <div class="scope-block">
     <div class="section-header">
-      <h2 class="section-title">Production Scope &amp; Operating Milestone Delivery Schedule</h2>
-      <div class="section-meta">Live Cockpit: https://gearsignal-ai.vercel.app</div>
+      <h2 class="section-title">Production Scope &amp; 30-Day Milestone Delivery Schedule</h2>
+      <div class="section-meta">Live Cockpit: https://scaleops-core.vercel.app</div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th style="width: 10%;">Milestone</th>
-          <th style="width: 60%;">Modular MVP Deliverables &amp; Engineering Guardrails</th>
+          <th style="width: 12%;">Milestone</th>
+          <th style="width: 58%;">Architecture &amp; Production Engineering Deliverables</th>
           <th style="width: 10%; text-align: center;">Timeline</th>
-          <th style="width: 8%; text-align: center;">Ownership</th>
-          <th style="width: 12%; text-align: right;">Investment</th>
+          <th style="width: 8%; text-align: center;">Share</th>
+          <th style="width: 12%; text-align: right;">Allocation</th>
         </tr>
       </thead>
       <tbody>
         <tr class="phase-0-row">
           <td class="phase-num"><span class="phase-0-badge">Phase 0</span></td>
           <td>
-            <div class="phase-name">Interactive GearSignal Social-Listening Cockpit &amp; Blueprints (Deployed)</div>
-            <div class="phase-desc">Living demo: 6-node animated Make/n8n event pipeline, centralized spreadsheet table, dual AI (gpt-4o-mini + gemini-2.0-flash), Slack Block Kit review cards, and 1-click JSON blueprint exports.</div>
+            <div class="phase-name">Interactive Architecture Prototype &amp; Operational Cockpit (Live)</div>
+            <div class="phase-desc">Living demo: 5,000 req/s Redis Stream ingestion buffer, PostgreSQL 112x query acceleration (428ms to 3.8ms), PgBouncer connection multiplexing (58:1 ratio), Redis XFetch stampede defense, and sub-500ms AI circuit breaker.</div>
           </td>
           <td style="text-align: center; font-weight: 700; white-space: nowrap;">Live Now</td>
           <td style="text-align: center; color: #16a34a; font-weight: 700;">Included</td>
           <td style="text-align: right; font-weight: 800; color: #16a34a;">$0.00 (Live)</td>
         </tr>
         <tr>
-          <td class="phase-num">Phase 1</td>
+          <td class="phase-num">Milestone 1</td>
           <td>
-            <div class="phase-name">Centralized No-Code Keyword, Brand &amp; Prompt Management Base</div>
-            <div class="phase-desc">Google Sheet / Airtable config table controlling competitors (Reverb/eBay), source communities, complaint phrases, switching triggers, minimum score threshold (1-10), and editable tone prompt without workflow edits.</div>
+            <div class="phase-name">Codebase Discovery, Observability Baseline &amp; Staging CI/CD Audit</div>
+            <div class="phase-desc">Audit current backend codebase (FastAPI/Django/Node), profile runtime latency, review Docker/K8s compose configurations, establish Prometheus/Datadog metrics baseline, and ship initial atomic PR to validate CI/CD pipeline.</div>
           </td>
-          <td style="text-align: center; font-weight: 600;">Days 1–3</td>
-          <td style="text-align: center; font-weight: 700; color: #059669;">100% Client</td>
-          <td style="text-align: right; font-weight: 700;">$100.00</td>
+          <td style="text-align: center; font-weight: 600;">Week 1</td>
+          <td style="text-align: center; font-weight: 700; color: #4338ca;">20%</td>
+          <td style="text-align: right; font-weight: 700;">25 Hrs ($1,000)</td>
         </tr>
         <tr>
-          <td class="phase-num">Phase 2</td>
+          <td class="phase-num">Milestone 2</td>
           <td>
-            <div class="phase-name">Multi-Platform Monitoring Connectors &amp; Polling Scheduler</div>
-            <div class="phase-desc">Connect and test priority community sources: r/Guitar, r/Bass, r/GuitarPedals (Reddit OAuth), TheGearPage &amp; TalkBass (RSS/Atom), and YouTube Data API v3. 15-minute cron polling with exponential backoff retries.</div>
+            <div class="phase-name">PostgreSQL 16 Slow Query Profiling, Execution Plans &amp; Composite Indexing</div>
+            <div class="phase-desc">Analyze EXPLAIN (ANALYZE, BUFFERS) telemetry on top 10 bottleneck queries. Eliminate disk buffer sequential scans via composite covering B-Trees, implement zero-downtime CONCURRENT index migrations, and cut P99 DB latency by 90%+.</div>
           </td>
-          <td style="text-align: center; font-weight: 600;">Days 4–6</td>
-          <td style="text-align: center; font-weight: 700; color: #059669;">100% Client</td>
-          <td style="text-align: right; font-weight: 700;">$125.00</td>
+          <td style="text-align: center; font-weight: 600;">Week 2</td>
+          <td style="text-align: center; font-weight: 700; color: #4338ca;">20%</td>
+          <td style="text-align: right; font-weight: 700;">25 Hrs ($1,000)</td>
         </tr>
         <tr>
-          <td class="phase-num">Phase 3</td>
+          <td class="phase-num">Milestone 3</td>
           <td>
-            <div class="phase-name">Dual-Model AI Classification, 1-10 Scoring &amp; Peer Response Generator</div>
-            <div class="phase-desc">Incorporate low-cost LLM (gpt-4o-mini primary with Gemini 2.0 Flash fallback) classifying into 9 discrete categories. Calculate 1-10 Opportunity Score (switching intent scored 9-10) and generate natural peer response drafts.</div>
+            <div class="phase-name">Asynchronous Webhook Ingestion, Redis 7 Streams &amp; Autoscaled Workers</div>
+            <div class="phase-desc">Decouple synchronous HTTP request threads with Redis 7 Streams buffer. Scale Celery/Inngest consumers from 4 to 24 workers under traffic surges, configure exponential backoff retries with full jitter, and wire Dead-Letter Queue (DLQ) alerts.</div>
           </td>
-          <td style="text-align: center; font-weight: 600;">Days 7–9</td>
-          <td style="text-align: center; font-weight: 700; color: #059669;">100% Client</td>
-          <td style="text-align: right; font-weight: 700;">$125.00</td>
+          <td style="text-align: center; font-weight: 600;">Week 3</td>
+          <td style="text-align: center; font-weight: 700; color: #4338ca;">20%</td>
+          <td style="text-align: right; font-weight: 700;">25 Hrs ($1,000)</td>
         </tr>
         <tr>
-          <td class="phase-num">Phase 4</td>
+          <td class="phase-num">Milestone 4</td>
           <td>
-            <div class="phase-name">Slack Block Kit Alert Cards with Direct Source Links (Human Review)</div>
-            <div class="phase-desc">Dispatch qualified leads (Score &ge; 7) to #gear-leads-alerts featuring platform source, author, original post quote, direct link, score badge, and 1-click copyable response draft for manual review. Zero bot spam.</div>
+            <div class="phase-name">PgBouncer Connection Pooling &amp; Redis XFetch Stampede Elimination</div>
+            <div class="phase-desc">Deploy PgBouncer in transaction pooling mode multiplexing 1,450 web connections to 25 PostgreSQL server slots. Implement probabilistic early cache recomputation (XFetch) to permanently eliminate thundering herd cache stampedes on hot keys.</div>
           </td>
-          <td style="text-align: center; font-weight: 600;">Days 10–11</td>
-          <td style="text-align: center; font-weight: 700; color: #059669;">100% Client</td>
-          <td style="text-align: right; font-weight: 700;">$75.00</td>
+          <td style="text-align: center; font-weight: 600;">Week 4</td>
+          <td style="text-align: center; font-weight: 700; color: #4338ca;">20%</td>
+          <td style="text-align: right; font-weight: 700;">25 Hrs ($1,000)</td>
         </tr>
         <tr>
-          <td class="phase-num">Phase 5</td>
+          <td class="phase-num">Milestone 5</td>
           <td>
-            <div class="phase-name">Deduplication Data Store, Client Account Handoff &amp; Loom Video</div>
-            <div class="phase-desc">Deploy SHA-256 deduplication cache preventing repeat alerts. Log all leads to Google Sheets / Airtable. Provide 5-10 minute Loom video walkthrough explaining management, prompt editing, and recurring costs (~$6–$10/mo).</div>
+            <div class="phase-name">Multi-Provider AI Gateway, Rate Limiting &amp; Production Handover Docs</div>
+            <div class="phase-desc">Implement sub-500ms automated circuit breaker (Gemini Flash to GPT-4o-mini), inline PII token scrubbing, OWASP LLM01 prompt injection defense, comprehensive integration test suite, and clean architecture runbooks with zero lock-in.</div>
           </td>
-          <td style="text-align: center; font-weight: 600;">Days 12–14</td>
-          <td style="text-align: center; font-weight: 700; color: #059669;">100% Client</td>
-          <td style="text-align: right; font-weight: 700;">$75.00</td>
+          <td style="text-align: center; font-weight: 600;">Week 5</td>
+          <td style="text-align: center; font-weight: 700; color: #4338ca;">20%</td>
+          <td style="text-align: right; font-weight: 700;">25 Hrs ($1,000)</td>
         </tr>
         <tr class="total-row">
-          <td colspan="2" style="font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Total Turnkey Modular MVP Scope (100% Client Account Ownership)</td>
-          <td style="text-align: center; font-weight: 800;">1–2 Weeks</td>
-          <td style="text-align: center; font-weight: 800;">100% Client</td>
-          <td style="text-align: right; font-weight: 800; font-family: ui-monospace, monospace; font-size: 9.8px;">$500.00</td>
+          <td colspan="2" style="font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Total 30-Day Systems Reliability Engagement (Staff Augmentation / 20–25 Hrs/Wk)</td>
+          <td style="text-align: center; font-weight: 800;">30 Days</td>
+          <td style="text-align: center; font-weight: 800;">100%</td>
+          <td style="text-align: right; font-weight: 800; font-family: ui-monospace, monospace; font-size: 9.8px;">$40.00/hr Capped</td>
         </tr>
       </tbody>
     </table>
@@ -583,40 +587,40 @@ def build_estimate():
   <!-- 3. 2-Column Technical & Financial Breakdown -->
   <div class="grid-2col">
     <div class="card-box">
-      <div class="card-box-title">Operating Engagement &amp; Milestone Breakdown</div>
+      <div class="card-box-title">30-Day Systems Reliability Roadmap</div>
       <div class="milestone-item">
-        <span class="milestone-name">Phase 0: Interactive GearSignal Demo (Delivered)</span>
+        <span class="milestone-name">Phase 0: Interactive ScaleOps Cockpit (Delivered)</span>
         <span class="milestone-val" style="color: #16a34a;">$0.00 (Live Ahead of Bid)</span>
       </div>
       <div class="milestone-item">
-        <span class="milestone-name">Phase 1: Centralized No-Code Config Base (Days 1–3)</span>
-        <span class="milestone-val">$100.00</span>
+        <span class="milestone-name">W1: Codebase Discovery &amp; Observability Baseline</span>
+        <span class="milestone-val">25 Hrs (Net Day 7)</span>
       </div>
       <div class="milestone-item">
-        <span class="milestone-name">Phase 2: Multi-Platform Monitoring Connectors (Days 4–6)</span>
-        <span class="milestone-val">$125.00</span>
+        <span class="milestone-name">W2: PostgreSQL Profiling &amp; Composite Indexing</span>
+        <span class="milestone-val">25 Hrs (Net Day 14)</span>
       </div>
       <div class="milestone-item">
-        <span class="milestone-name">Phase 3: AI Classification &amp; Opportunity Scoring (Days 7–9)</span>
-        <span class="milestone-val">$125.00</span>
+        <span class="milestone-name">W3: Ingestion Decoupling &amp; Worker Autoscaling</span>
+        <span class="milestone-val">25 Hrs (Net Day 21)</span>
       </div>
       <div class="milestone-item">
-        <span class="milestone-name">Phase 4: Slack Block Kit Alert Dispatcher (Days 10–11)</span>
-        <span class="milestone-val">$75.00</span>
+        <span class="milestone-name">W4: PgBouncer Pooling &amp; XFetch Stampede Defense</span>
+        <span class="milestone-val">25 Hrs (Net Day 28)</span>
       </div>
       <div class="milestone-item">
-        <span class="milestone-name">Phase 5: Deduplication Store &amp; Loom Walkthrough (Days 12–14)</span>
-        <span class="milestone-val">$75.00</span>
+        <span class="milestone-name">W5: Multi-Provider AI Gateway &amp; Handover Docs</span>
+        <span class="milestone-val">25 Hrs (Net Day 35)</span>
       </div>
     </div>
 
     <div class="card-box">
-      <div class="card-box-title">Deterministic Architecture Guardrails</div>
-      <div class="guardrail-item"><strong>Zero Workflow Maintenance:</strong> Add/remove keywords, competitors, and prompt tones directly in spreadsheet.</div>
-      <div class="guardrail-item"><strong>100% Account Ownership:</strong> Built directly in client's Make/n8n and Slack accounts with zero developer lock-in.</div>
-      <div class="guardrail-item"><strong>Dual-Model Circuit Breaker:</strong> Automated failover from OpenAI gpt-4o-mini to Gemini 2.0 Flash on API downtime.</div>
-      <div class="guardrail-item"><strong>SHA-256 Deduplication:</strong> Post hash cache blocks repeated alerts; zero redundant AI token spend.</div>
-      <div class="guardrail-item"><strong>Human-in-the-Loop Workflow:</strong> Suggested response drafts sent to Slack for manual review; zero bot spam.</div>
+      <div class="card-box-title">Production Architecture &amp; Reliability Guardrails</div>
+      <div class="guardrail-item"><strong>Zero Downtime Migrations:</strong> All PostgreSQL indexing deployed CONCURRENTLY with strict lock timeouts.</div>
+      <div class="guardrail-item"><strong>Database Connection Shield:</strong> PgBouncer transaction pooling prevents connection pool exhaustion at 5,000 req/s.</div>
+      <div class="guardrail-item"><strong>Cache Stampede Defense:</strong> Redis XFetch probabilistic early refresh eliminates database spikes on expired keys.</div>
+      <div class="guardrail-item"><strong>Staff Augmentation Hygiene:</strong> Clean atomic PRs, daily async standup notes, 100% test pass rate, zero micromanagement.</div>
+      <div class="guardrail-item"><strong>Cloud Cost Right-Sizing:</strong> Optimized query plans &amp; pooling cut AWS RDS and compute bills by up to $2,450/month.</div>
     </div>
   </div>
 
@@ -624,20 +628,20 @@ def build_estimate():
   <div class="terms-box">
     <div class="terms-grid">
       <div class="term-col">
-        <div class="term-title">Fixed-Price Turnkey</div>
-        <div class="term-body">$500.00 fixed investment aligned with budget. Zero hidden fees or unexpected infrastructure overages.</div>
+        <div class="term-title">Calibrated Hourly Rate</div>
+        <div class="term-body">$40.00/hr (20–25 hrs/week). Aligned with client historical average ($50/hr). Flexible weekly sprint cadence.</div>
       </div>
       <div class="term-col">
-        <div class="term-title">Ultra-Low Running Cost</div>
-        <div class="term-body">Total recurring infrastructure costs estimated at only ~$6–$10/month (Make.com $9 + micro-cent AI tokens).</div>
+        <div class="term-title">Cloud Cost Reduction</div>
+        <div class="term-body">Halves AWS RDS and serverless compute waste (~$29,400/yr saved), paying back engineering costs in weeks.</div>
       </div>
       <div class="term-col">
-        <div class="term-title">100% Client Ownership</div>
-        <div class="term-body">All workflows, API keys, sheets, and Slack integrations registered directly under client's credentials.</div>
+        <div class="term-title">100% Code Ownership</div>
+        <div class="term-body">All code, PRs, Terraform modules, and Docker configs committed directly to client's Git repositories.</div>
       </div>
       <div class="term-col">
-        <div class="term-title">5-10 Min Loom Walkthrough</div>
-        <div class="term-body">Comprehensive video showing how to add keywords, adjust score thresholds, and manage operations.</div>
+        <div class="term-title">Daily Async Standups</div>
+        <div class="term-body">Daily notes on shipped work, upcoming PRs, blockers, and test status. Zero hand-holding required.</div>
       </div>
     </div>
   </div>
@@ -645,33 +649,33 @@ def build_estimate():
   <!-- 5. Formal Acceptance Authorization Block -->
   <div class="auth-block">
     <div class="auth-title">
-      <span>Formal Authorization &amp; Engagement Acceptance</span>
-      <span style="font-weight: 500; font-size: 7.3px; color: #475569;">Binding upon signature by authorized representatives</span>
+      <span>Formal Authorization &amp; Systems Reliability Acceptance</span>
+      <span style="font-weight: 500; font-size: 7.4px; color: #475569;">Binding upon contract activation via Upwork hourly offer / milestone schedule</span>
     </div>
     <div class="auth-grid">
       <div class="auth-party">
         <div class="auth-party-title">Authorized Architect: BarakahSoft LLC (Wyoming, USA)</div>
-        <div>Signatory: <strong>Shakil Ahmed</strong> • Principal AI Systems Architect &amp; Founder</div>
+        <div>Signatory: <strong>Shakil Ahmed</strong> • Principal Systems Architect &amp; Former Lead Engineer at Legiit</div>
         <div class="auth-sign-line">
           <div class="auth-sign-field">Shakil Ahmed</div>
-          <div class="auth-date-field">16 Sep 2026</div>
+          <div class="auth-date-field">17 Sep 2026</div>
         </div>
         <div style="display: flex; justify-content: space-between;">
           <span class="auth-label">Authorized Architect Signature</span>
-          <span class="auth-label" style="width: 85px; text-align: center;">Date</span>
+          <span class="auth-label" style="width: 90px; text-align: center;">Date</span>
         </div>
       </div>
 
       <div class="auth-party">
-        <div class="auth-party-title">Authorized Client: Musical Gear Marketplace (Pine Beach, NJ)</div>
-        <div>Signatory: <strong>Marketplace Founder</strong> • Authorized Client Representative</div>
+        <div class="auth-party-title">Authorized Client: Canadian B2B SaaS Platform</div>
+        <div>Signatory: <strong>Founder / CTO</strong> • Authorized SaaS Client Representative</div>
         <div class="auth-sign-line">
-          <div class="auth-sign-field" style="color: #64748b; font-family: inherit; font-size: 7.8px; font-style: italic;">[ Accepted via Upwork Contract Offer / Sign-off ]</div>
+          <div class="auth-sign-field" style="color: #64748b; font-family: inherit; font-size: 8px; font-style: italic;">[ Accepted via Upwork Contract Offer / Sign-off ]</div>
           <div class="auth-date-field">___ / ___ / 2026</div>
         </div>
         <div style="display: flex; justify-content: space-between;">
           <span class="auth-label">Authorized Client Signature</span>
-          <span class="auth-label" style="width: 85px; text-align: center;">Date</span>
+          <span class="auth-label" style="width: 90px; text-align: center;">Date</span>
         </div>
       </div>
     </div>
@@ -682,14 +686,14 @@ def build_estimate():
     <div class="footer-founder">
       <img src="data:image/jpeg;base64,{headshot_b64}" alt="Shakil Ahmed" class="founder-avatar" />
       <div class="founder-info">
-        <div class="founder-name"><strong>Shakil Ahmed</strong> • Principal Systems Architect &amp; Founder (12+ Yrs Exp)</div>
-        <div class="founder-company"><strong>BarakahSoft LLC</strong> • Enterprise Systems Engineering &amp; AI Governance</div>
+        <div class="founder-name"><strong>Shakil Ahmed</strong> • Senior Backend Architect &amp; Former Lead Engineer at Legiit (12+ Yrs Exp)</div>
+        <div class="founder-company"><strong>BarakahSoft LLC</strong> • Enterprise Systems Engineering &amp; Reliability Architecture</div>
         <div class="founder-sub">Securiti Certified AI Security &amp; Governance Architect (Cert ID: 14B411BCE-14B411A3D-1451CFE76) • Verified Upwork Partner</div>
       </div>
     </div>
     <div class="footer-brand">
       <img src="data:image/png;base64,{logo_b64}" alt="BarakahSoft" class="business-logo" />
-      <a href="https://gearsignal-ai.vercel.app" target="_blank" class="demo-badge">gearsignal-ai.vercel.app</a>
+      <a href="https://scaleops-core.vercel.app" target="_blank" class="demo-badge">scaleops-core.vercel.app</a>
     </div>
   </div>
 
@@ -702,6 +706,11 @@ def build_estimate():
         f.write(html_content)
 
     print("Saved estimate.html to:", html_path)
+
+    # Also save as architecture_brief.html so both point to the canonical template
+    with open(brief_html_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print("Saved architecture_brief.html to:", brief_html_path)
 
     # Compile with Headless Chrome using absolute file URI
     chrome_cmd = [
@@ -720,6 +729,10 @@ def build_estimate():
     else:
         print("Chrome print-to-pdf error:", res.stderr, file=sys.stderr)
         sys.exit(1)
+
+    # Copy to ARCHITECTURE_BRIEF.pdf
+    shutil.copyfile(pdf_path, brief_pdf_path)
+    print(f"Synced copy to ARCHITECTURE_BRIEF.pdf ({os.path.getsize(brief_pdf_path)} bytes)")
 
     # Verify page count
     with open(pdf_path, "rb") as f:
