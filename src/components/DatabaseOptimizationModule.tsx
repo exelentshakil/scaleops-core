@@ -180,10 +180,10 @@ Execution Time: 428.66 ms`}
 
         {/* Right Column: High-Density Telemetry & Architecture Takeaways (Zero White Space) */}
         <div className="space-y-3.5 flex flex-col justify-start">
-          {/* 4 Balanced KPI Cards (2x2 Grid) */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
-            {/* KPI 1: Latency */}
-            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-1 shadow-xs">
+          {/* 4 Balanced KPI Cards with Purposeful Systems Micro-Charts (2x2 Grid) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* KPI 1: Latency & SLA Micro-Chart */}
+            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-2 shadow-xs">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-mono">
                 <span className="font-medium">QUERY LATENCY</span>
                 <Clock className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
@@ -198,10 +198,58 @@ Execution Time: 428.66 ms`}
               >
                 {selectedScenario === 'indexed' ? '112x Speedup (Sub-5ms SLA)' : 'Degrading Pool Capacity'}
               </div>
+
+              {/* Micro-Chart: SLA Threshold Gauge & Execution Sparkline */}
+              <div className="pt-2 border-t border-[var(--color-border-subtle)] space-y-1.5">
+                <div className="flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-[var(--color-text-muted)]">SLA: &lt;5.0ms</span>
+                  <span className={selectedScenario === 'indexed' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-rose-600 dark:text-rose-400 font-bold'}>
+                    {selectedScenario === 'indexed' ? '3.8ms (Nominal)' : '! Breach (+8472%)'}
+                  </span>
+                </div>
+                {/* Visual threshold bar */}
+                <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden relative">
+                  <div
+                    className={`h-full rounded-full transition-all duration-500 ${
+                      selectedScenario === 'indexed'
+                        ? 'w-[76%] bg-emerald-500 shadow-xs'
+                        : 'w-full bg-rose-500 animate-pulse'
+                    }`}
+                  />
+                </div>
+                {/* Micro Sparkline SVG */}
+                <div className="h-4 w-full flex items-end">
+                  <svg className="w-full h-full overflow-visible" viewBox="0 0 100 16" preserveAspectRatio="none">
+                    {selectedScenario === 'indexed' ? (
+                      <>
+                        <path
+                          d="M0 13 L25 11 L50 12 L75 10 L100 11"
+                          fill="none"
+                          stroke="#10b981"
+                          strokeWidth="1.75"
+                          strokeLinecap="round"
+                        />
+                        <circle cx="100" cy="11" r="2" fill="#10b981" />
+                      </>
+                    ) : (
+                      <>
+                        <path
+                          d="M0 12 L20 4 L40 10 L65 2 L85 8 L100 3"
+                          fill="none"
+                          stroke="#f43f5e"
+                          strokeWidth="1.75"
+                          strokeLinecap="round"
+                        />
+                        <circle cx="100" cy="3" r="2" fill="#f43f5e" />
+                      </>
+                    )}
+                  </svg>
+                </div>
+              </div>
             </Card>
 
-            {/* KPI 2: Disk I/O */}
-            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-1 shadow-xs">
+            {/* KPI 2: Disk I/O & Storage Layer Breakdown */}
+            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-2 shadow-xs">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-mono">
                 <span className="font-medium">DISK I/O READS</span>
                 <HardDrive className="h-3.5 w-3.5 text-blue-500 shrink-0" />
@@ -216,10 +264,38 @@ Execution Time: 428.66 ms`}
               >
                 {selectedScenario === 'indexed' ? '100% RAM Buffer Hit' : 'Physical Disk I/O Stall'}
               </div>
+
+              {/* Micro-Chart: Storage Segmented Bar (RAM vs NVMe) */}
+              <div className="pt-2 border-t border-[var(--color-border-subtle)] space-y-1.5">
+                <div className="flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-[var(--color-text-muted)]">I/O Medium</span>
+                  <span className={selectedScenario === 'indexed' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-rose-600 dark:text-rose-400 font-bold'}>
+                    {selectedScenario === 'indexed' ? 'RAM: 100%' : 'NVMe: 91.8%'}
+                  </span>
+                </div>
+                {/* Segmented Bar */}
+                <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden flex">
+                  {selectedScenario === 'indexed' ? (
+                    <div className="h-full w-full bg-emerald-500 rounded-full transition-all duration-500" />
+                  ) : (
+                    <>
+                      <div className="h-full w-[8.2%] bg-slate-400 dark:bg-slate-600 transition-all duration-500" title="RAM hit (1,280 blocks)" />
+                      <div className="h-full w-[91.8%] bg-rose-500 transition-all duration-500 animate-pulse" title="NVMe read (14,200 blocks)" />
+                    </>
+                  )}
+                </div>
+                {/* Micro Throughput Telemetry Strip */}
+                <div className="h-4 flex items-center justify-between text-[10px] font-mono text-[var(--color-text-muted)]">
+                  <span>{selectedScenario === 'indexed' ? '0 KB/s disk' : '113.6 MB/s churn'}</span>
+                  <span className="font-semibold text-[var(--color-text-primary)]">
+                    {selectedScenario === 'indexed' ? '0 NVMe IOPS' : '14.2k IOPS Stalled'}
+                  </span>
+                </div>
+              </div>
             </Card>
 
-            {/* KPI 3: Buffer Hit Ratio */}
-            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-1 shadow-xs">
+            {/* KPI 3: Buffer Cache Hit Ratio Gauge */}
+            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-2 shadow-xs">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-mono">
                 <span className="font-medium">BUFFER CACHE HIT</span>
                 <Database className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
@@ -234,10 +310,37 @@ Execution Time: 428.66 ms`}
               >
                 {selectedScenario === 'indexed' ? '42 Shared Memory Buffers' : '14.2k Misses to NVMe'}
               </div>
+
+              {/* Micro-Chart: Cache Hit Progress Bar with Target Marker */}
+              <div className="pt-2 border-t border-[var(--color-border-subtle)] space-y-1.5">
+                <div className="flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-[var(--color-text-muted)]">Target: &gt;99%</span>
+                  <span className={selectedScenario === 'indexed' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-rose-600 dark:text-rose-400 font-bold'}>
+                    {selectedScenario === 'indexed' ? '100% In-Memory' : 'Critical Deficit'}
+                  </span>
+                </div>
+                {/* Progress Bar */}
+                <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden relative">
+                  <div
+                    className={`h-full rounded-full transition-all duration-500 ${
+                      selectedScenario === 'indexed'
+                        ? 'w-full bg-emerald-500 shadow-xs'
+                        : 'w-[8.2%] bg-rose-500'
+                    }`}
+                  />
+                </div>
+                {/* Block Count Comparison */}
+                <div className="h-4 flex items-center justify-between text-[10px] font-mono text-[var(--color-text-muted)]">
+                  <span>{selectedScenario === 'indexed' ? 'Shared: 42/42' : 'Hit: 1.2k / 15.4k'}</span>
+                  <span className="font-semibold text-[var(--color-text-primary)]">
+                    {selectedScenario === 'indexed' ? '0 Disk Spills' : '4.8MB Sort Spill'}
+                  </span>
+                </div>
+              </div>
             </Card>
 
-            {/* KPI 4: CPU I/O Wait */}
-            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-1 shadow-xs">
+            {/* KPI 4: CPU I/O Wait & Worker Thread Allocation Meter */}
+            <Card className="p-3 sm:p-3.5 bg-[var(--color-surface)] border-[var(--color-border)] space-y-2 shadow-xs">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-mono">
                 <span className="font-medium">CPU I/O WAIT</span>
                 <Cpu className="h-3.5 w-3.5 text-amber-500 shrink-0" />
@@ -251,6 +354,40 @@ Execution Time: 428.66 ms`}
                 }`}
               >
                 {selectedScenario === 'indexed' ? 'Instant Worker Return' : 'Worker Thread Stalled'}
+              </div>
+
+              {/* Micro-Chart: 8-Worker Thread Concurrency State Meter */}
+              <div className="pt-2 border-t border-[var(--color-border-subtle)] space-y-1.5">
+                <div className="flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-[var(--color-text-muted)]">Worker Backends (8)</span>
+                  <span className={selectedScenario === 'indexed' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-rose-600 dark:text-rose-400 font-bold'}>
+                    {selectedScenario === 'indexed' ? '8 Active' : '7 Stalled (D-State)'}
+                  </span>
+                </div>
+                {/* 8 Worker Thread Status Blocks */}
+                <div className="grid grid-cols-8 gap-1 h-1.5 w-full">
+                  {Array.from({ length: 8 }).map((_, i) => {
+                    const isStalled = selectedScenario === 'unindexed' && i < 7;
+                    return (
+                      <div
+                        key={i}
+                        className={`h-full rounded-xs transition-all duration-300 ${
+                          isStalled
+                            ? 'bg-rose-500 animate-pulse'
+                            : 'bg-emerald-500'
+                        }`}
+                        title={`Worker #${i + 1}: ${isStalled ? 'Stalled on Disk I/O' : 'Active Compute'}`}
+                      />
+                    );
+                  })}
+                </div>
+                {/* Concurrency pool capacity */}
+                <div className="h-4 flex items-center justify-between text-[10px] font-mono text-[var(--color-text-muted)]">
+                  <span>{selectedScenario === 'indexed' ? 'Pool: 100% Free' : 'Pool: 85% Exhausted'}</span>
+                  <span className="font-semibold text-[var(--color-text-primary)]">
+                    {selectedScenario === 'indexed' ? '12.5k req/s' : '65 req/s max'}
+                  </span>
+                </div>
               </div>
             </Card>
           </div>

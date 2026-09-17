@@ -17,9 +17,9 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-[var(--color-border)] bg-[var(--color-surface)] py-12 px-4 sm:px-6 lg:px-8 mt-16">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
           {/* Brand & Systems Mission */}
-          <div className="md:col-span-2 space-y-3">
+          <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
               <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white font-black text-sm shadow-xs">
                 <Server className="h-4 w-4 text-white" />
@@ -47,7 +47,7 @@ export function Footer() {
           </div>
 
           {/* Architecture Stack */}
-          <div className="space-y-2.5">
+          <div className="md:col-span-3 space-y-2.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
               Systems Architecture
             </h4>
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
 
           {/* Principal Systems Architect Verification */}
-          <div className="space-y-2.5">
+          <div className="md:col-span-4 space-y-2.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
               Principal Systems Architect
             </h4>
@@ -74,12 +74,12 @@ export function Footer() {
               <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
                 Former Engineering Team Lead at Legiit. Scaled core backend architecture to $1M ARR across 1,500+ businesses and 1,000,000+ transactions.
               </p>
-              <div className="pt-2 border-t border-[var(--color-border)] flex items-center justify-between gap-2 text-xs font-mono">
-                <div className="flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 font-medium">
+              <div className="pt-2 border-t border-[var(--color-border)] flex items-center justify-between gap-1.5 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 font-medium min-w-0">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                  <span>Securiti Certified AI Architect</span>
+                  <span className="whitespace-nowrap shrink-0 text-[11px] font-semibold">Securiti Certified</span>
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shrink-0">
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 whitespace-nowrap shrink-0">
                   <ShieldCheck className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                   <span>Verified</span>
                 </span>

@@ -60,7 +60,7 @@ export function ReviewerTour({ onNavigate, onOpenChaosModal }: ReviewerTourProps
   ];
 
   return (
-    <div className="w-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-6 shadow-xs transition-all">
+    <div className="w-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-3.5 sm:p-6 shadow-xs transition-all">
       {/* Top Banner Header with Problem-Solution Context */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--color-border)] pb-4">
         <div>
@@ -143,30 +143,46 @@ export function ReviewerTour({ onNavigate, onOpenChaosModal }: ReviewerTourProps
             })}
           </div>
 
-          {/* High-Contrast Command Console Summary Strip */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3.5 rounded-xl bg-slate-900 text-white p-3.5 sm:p-4 shadow-card border border-slate-800">
-            <div className="flex items-center gap-3 min-w-0 flex-1">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
-                <ShieldCheck className="h-4.5 w-4.5" />
-              </div>
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs">
-                <span className="font-mono font-bold text-indigo-400 uppercase tracking-wider text-[11px] shrink-0">
-                  Engineering Standards:
+          {/* High-Contrast Command Console Summary Strip: Perfectly Balanced Mobile & Desktop */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3.5 rounded-xl bg-slate-950 text-white p-3.5 sm:p-4 shadow-card border border-slate-800">
+            <div className="space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:gap-3.5 min-w-0 flex-1">
+              {/* Header on mobile (Icon + Title + Status Pill), inline on desktop */}
+              <div className="flex items-center justify-between sm:justify-start gap-2.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 shadow-xs">
+                    <ShieldCheck className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
+                  </div>
+                  <span className="font-mono font-bold text-indigo-300 uppercase tracking-wider text-[11px] whitespace-nowrap shrink-0">
+                    Engineering Standards
+                  </span>
+                </div>
+                <span className="sm:hidden inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono font-bold text-emerald-400 border border-emerald-500/20 whitespace-nowrap shrink-0">
+                  Active SLA
                 </span>
-                <span className="text-slate-200 font-medium whitespace-nowrap">Zero Micromanagement</span>
-                <span className="text-slate-600 select-none">•</span>
-                <span className="text-slate-200 font-medium whitespace-nowrap">Modular Tested PRs</span>
-                <span className="text-slate-600 select-none">•</span>
-                <span className="text-slate-200 font-medium whitespace-nowrap">Daily Async Notes</span>
-                <span className="text-slate-600 select-none">•</span>
-                <span className="text-emerald-400 font-medium whitespace-nowrap">Zero-Downtime Deploys</span>
+              </div>
+
+              {/* Standards Micro-Pill Chips: 2x2 Balanced Grid on Mobile, Inline on Desktop */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-1.5 sm:gap-2 text-xs w-full sm:w-auto">
+                <span className="inline-flex items-center justify-center text-center px-2 py-1 sm:py-0.5 rounded-md bg-slate-900 border border-slate-800 text-slate-200 text-[10px] sm:text-[11px] font-mono whitespace-nowrap">
+                  Zero Micromanagement
+                </span>
+                <span className="inline-flex items-center justify-center text-center px-2 py-1 sm:py-0.5 rounded-md bg-slate-900 border border-slate-800 text-slate-200 text-[10px] sm:text-[11px] font-mono whitespace-nowrap">
+                  Modular Tested PRs
+                </span>
+                <span className="inline-flex items-center justify-center text-center px-2 py-1 sm:py-0.5 rounded-md bg-slate-900 border border-slate-800 text-slate-200 text-[10px] sm:text-[11px] font-mono whitespace-nowrap">
+                  Daily Async Notes
+                </span>
+                <span className="inline-flex items-center justify-center text-center px-2 py-1 sm:py-0.5 rounded-md bg-emerald-950/40 border border-emerald-800/50 text-emerald-300 text-[10px] sm:text-[11px] font-mono font-semibold whitespace-nowrap">
+                  Zero-Downtime Deploys
+                </span>
               </div>
             </div>
 
+            {/* Action Button: Full-width on mobile, compact on desktop */}
             <Button
               size="sm"
               onClick={onOpenChaosModal}
-              className="h-8 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-xs whitespace-nowrap shrink-0 border border-indigo-500/40"
+              className="h-8 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-xs whitespace-nowrap shrink-0 border border-indigo-500/40 w-full sm:w-auto justify-center"
             >
               <Zap className="h-3.5 w-3.5 mr-1 text-indigo-200" />
               <span>Chaos Injection</span>
