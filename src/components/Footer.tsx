@@ -11,89 +11,138 @@ import {
   Terminal,
   Activity,
   CheckCircle2,
+  Workflow,
 } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="w-full border-t border-[var(--color-border)] bg-[var(--color-surface)] py-12 px-4 sm:px-6 lg:px-8 mt-16">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
-          {/* Brand & Systems Mission */}
-          <div className="md:col-span-5 space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white font-black text-sm shadow-xs">
-                <Server className="h-4 w-4 text-white" />
+        {/* Balanced 3-Pillar Architecture Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10 items-stretch">
+          
+          {/* Pillar 1: Platform & Systems Mission */}
+          <div className="space-y-2.5 flex flex-col">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
+              Systems Platform
+            </h4>
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 flex flex-col justify-between flex-1 space-y-3.5 text-xs">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white font-black text-sm shadow-xs shrink-0">
+                    <Server className="h-4 w-4 text-white" />
+                  </div>
+                  <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                    <span className="text-base font-extrabold tracking-tight text-[var(--color-text-primary)] whitespace-nowrap">
+                      ScaleOps Core
+                    </span>
+                    <span className="rounded-full bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 text-[10px] font-mono font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shrink-0">
+                      v1.6 Production
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                  High-throughput asynchronous ingestion, PostgreSQL 16 performance engineering, PgBouncer connection multiplexing, and AI gateway circuit breaker architecture for mission-critical SaaS platforms.
+                </p>
               </div>
-              <span className="text-base font-extrabold tracking-tight text-[var(--color-text-primary)]">
-                ScaleOps Core
-              </span>
-              <span className="rounded-full bg-indigo-50 dark:bg-indigo-950 px-2.5 py-0.5 text-xs font-mono font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-                v1.6 Production Systems
-              </span>
-            </div>
-            <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed max-w-md">
-              High-throughput asynchronous ingestion, PostgreSQL 16 performance engineering, PgBouncer connection multiplexing, and AI gateway circuit breaker architecture for mission-critical SaaS platforms.
-            </p>
-            <div className="flex flex-wrap items-center gap-2.5 pt-1 text-xs font-mono text-[var(--color-text-muted)]">
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                Cluster Health: Nominal
-              </span>
-              <span className="text-[var(--color-border)] select-none">•</span>
-              <span>NIST AI RMF &amp; OWASP LLM01</span>
-              <span className="text-[var(--color-border)] select-none">•</span>
-              <span>100% Client Codebase Ownership</span>
+
+              {/* Verified Platform Status Strip - Strict Single Line Anti-Wrapping */}
+              <div className="pt-2.5 border-t border-[var(--color-border)] flex items-center justify-between gap-2 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium whitespace-nowrap min-w-0">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                  <span className="text-[11px] font-semibold truncate">Cluster: Nominal</span>
+                </div>
+                <span className="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 text-[10px] font-mono font-semibold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shrink-0">
+                  100% Codebase Ownership
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Architecture Stack */}
-          <div className="md:col-span-3 space-y-2.5">
+          {/* Pillar 2: Systems Architecture & Technical Specs */}
+          <div className="space-y-2.5 flex flex-col">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
               Systems Architecture
             </h4>
-            <ul className="space-y-1.5 text-xs text-[var(--color-text-secondary)] font-mono">
-              <li>Python / FastAPI &amp; Node.js Services</li>
-              <li>PostgreSQL 16 + Covering B-Tree Indexes</li>
-              <li>PgBouncer Connection Pooling (58:1)</li>
-              <li>Redis 7 Streams &amp; XFetch Stampede Shield</li>
-              <li>Celery &amp; Inngest Distributed Workers</li>
-              <li>Multi-Provider AI Gateway &amp; PII Filter</li>
-            </ul>
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 flex flex-col justify-between flex-1 space-y-3.5 text-xs">
+              <div className="space-y-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2 text-[11px] font-mono text-[var(--color-text-secondary)]">
+                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-2.5 py-1.5 shadow-2xs">
+                    <Terminal className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">Python & Node.js</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-2.5 py-1.5 shadow-2xs">
+                    <Database className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">Postgres 16 B-Tree</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-2.5 py-1.5 shadow-2xs">
+                    <Layers className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">PgBouncer (58:1)</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-2.5 py-1.5 shadow-2xs">
+                    <Activity className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">Redis 7 Streams</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-2.5 py-1.5 shadow-2xs">
+                    <Workflow className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">Celery / Inngest</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-2.5 py-1.5 shadow-2xs">
+                    <Cpu className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">AI Circuit Breaker</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Compliance & SLA Verification Strip */}
+              <div className="pt-2.5 border-t border-[var(--color-border)] flex items-center justify-between gap-2 text-xs font-mono">
+                <span className="text-[11px] text-[var(--color-text-muted)] font-medium truncate">
+                  NIST AI RMF • OWASP LLM01
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 whitespace-nowrap shrink-0">
+                  99.99% SLA
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* Principal Systems Architect Verification - Verified Headshot & Identity */}
-          <div className="md:col-span-4 space-y-2.5">
+          {/* Pillar 3: Principal Systems Architect Verification */}
+          <div className="space-y-2.5 flex flex-col">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
               Principal Systems Architect
             </h4>
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-3.5 space-y-2.5 text-xs">
-              <div className="flex items-center gap-3">
-                <div className="relative shrink-0">
-                  <img
-                    src="/headshot.jpeg"
-                    alt="Shakil Ahmed - Principal Systems Architect"
-                    className="h-11 w-11 rounded-xl object-cover ring-2 ring-indigo-500/30 border border-[var(--color-border)] shadow-xs"
-                  />
-                  <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 text-white ring-2 ring-white dark:ring-slate-900 shadow-xs" title="Verified Architect">
-                    <CheckCircle2 className="h-2.5 w-2.5" />
-                  </span>
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5 font-bold text-[var(--color-text-primary)] text-sm">
-                    <span>Shakil Ahmed</span>
-                    <span className="inline-flex items-center rounded bg-indigo-50 dark:bg-indigo-950/60 px-1.5 py-0.2 text-[10px] font-mono font-semibold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shrink-0">
-                      Lead
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 flex flex-col justify-between flex-1 space-y-3 text-xs">
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-3">
+                  <div className="relative shrink-0">
+                    <img
+                      src="/headshot.jpeg"
+                      alt="Shakil Ahmed - Principal Systems Architect"
+                      className="h-11 w-11 rounded-xl object-cover ring-2 ring-indigo-500/30 border border-[var(--color-border)] shadow-xs"
+                    />
+                    <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 text-white ring-2 ring-white dark:ring-slate-900 shadow-xs" title="Verified Architect">
+                      <CheckCircle2 className="h-2.5 w-2.5" />
                     </span>
                   </div>
-                  <p className="text-[11px] text-[var(--color-text-muted)] font-mono truncate">
-                    Autonomous Systems &amp; AI Architect
-                  </p>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5 font-bold text-[var(--color-text-primary)] text-sm">
+                      <span className="truncate">Shakil Ahmed</span>
+                      <span className="inline-flex items-center rounded bg-indigo-50 dark:bg-indigo-950/60 px-1.5 py-0.2 text-[10px] font-mono font-semibold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shrink-0">
+                        Lead
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-[var(--color-text-muted)] font-mono truncate">
+                      Autonomous Systems &amp; AI Architect
+                    </p>
+                  </div>
                 </div>
+                <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                  Former Engineering Team Lead at Legiit. Scaled core backend architecture to $1M ARR across 1,500+ businesses and 1,000,000+ transactions.
+                </p>
               </div>
-              <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-                Former Engineering Team Lead at Legiit. Scaled core backend architecture to $1M ARR across 1,500+ businesses and 1,000,000+ transactions.
-              </p>
-              <div className="pt-2 border-t border-[var(--color-border)] flex items-center justify-between gap-1.5 text-xs font-mono">
+
+              {/* Certified Architect Verification Bar */}
+              <div className="pt-2.5 border-t border-[var(--color-border)] flex items-center justify-between gap-1.5 text-xs font-mono">
                 <div className="flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 font-medium min-w-0">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
                   <span className="whitespace-nowrap shrink-0 text-[11px] font-semibold">Securiti Certified</span>
@@ -105,6 +154,7 @@ export function Footer() {
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Bottom bar */}
