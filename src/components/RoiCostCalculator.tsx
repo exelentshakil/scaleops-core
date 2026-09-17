@@ -137,14 +137,14 @@ export function RoiCostCalculator() {
             </div>
           </div>
 
-          {/* Engineering Payback Time */}
+          {/* Infrastructure ROI Payback Time */}
           <div className="rounded-xl bg-slate-900 text-white p-3.5 text-xs space-y-1.5 border border-slate-800">
             <div className="flex items-center gap-1.5 font-bold text-emerald-400">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
-              <span>Engineering Investment Payback: ~3 Weeks</span>
+              <span>Infrastructure Optimization Payback: &lt; 30 Days</span>
             </div>
             <p className="text-slate-300 leading-relaxed text-[11px]">
-              At $40/hr (25 hrs/week = $4,000/mo), the infrastructure right-sizing and query acceleration pays for senior engineering within the first month by halving AWS RDS and compute waste.
+              By slashing database CPU wait times from 85% to 14% and offloading 92% of read traffic via Redis XFetch, this architecture eliminates runaway AWS RDS instance sizing and cloud compute waste immediately upon deployment.
             </p>
           </div>
         </div>

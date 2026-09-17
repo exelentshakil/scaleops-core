@@ -284,18 +284,26 @@ export function BlueprintExporter() {
         </button>
       </div>
 
-      {/* Description & Code Preview */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-[var(--color-text-primary)]">{currentBlueprint.title}</span>
-            <span className="text-[var(--color-text-muted)] font-mono">• {currentBlueprint.badge}</span>
+      {/* Blueprint Metadata Bar & Code Preview */}
+      <div className="space-y-2.5">
+        {/* Anti-Wrapping Structured Metadata Strip */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 p-2.5 rounded-xl bg-[var(--color-panel-subtle)] border border-[var(--color-border)]">
+          <div className="flex flex-wrap items-center gap-2 min-w-0 shrink-0">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] font-mono font-bold text-xs text-[var(--color-text-primary)] shadow-xs whitespace-nowrap shrink-0">
+              <Code2 className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+              <span>{currentBlueprint.title}</span>
+            </span>
+            <span className="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-950/50 px-2 py-0.5 text-[11px] font-mono font-semibold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shrink-0">
+              {currentBlueprint.badge}
+            </span>
           </div>
-          <span className="text-[11px] text-[var(--color-text-muted)] font-mono">
+
+          <p className="text-xs text-[var(--color-text-secondary)] font-mono md:text-right leading-relaxed max-w-xl">
             {currentBlueprint.desc}
-          </span>
+          </p>
         </div>
 
+        {/* Code Box */}
         <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 font-mono text-xs text-slate-200 overflow-x-auto max-h-[420px] shadow-inner">
           <pre className="leading-relaxed whitespace-pre font-mono">
             <code>{currentBlueprint.code}</code>

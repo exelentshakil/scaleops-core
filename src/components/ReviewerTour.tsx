@@ -144,18 +144,22 @@ export function ReviewerTour({ onNavigate, onOpenChaosModal }: ReviewerTourProps
           </div>
 
           {/* High-Contrast Command Console Summary Strip */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 rounded-xl bg-slate-900 text-white p-3.5 sm:p-4 shadow-card border border-slate-800">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
-                <ShieldCheck className="h-5 w-5" />
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3.5 rounded-xl bg-slate-900 text-white p-3.5 sm:p-4 shadow-card border border-slate-800">
+            <div className="flex items-center gap-3 min-w-0 flex-1">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                <ShieldCheck className="h-4.5 w-4.5" />
               </div>
-              <div className="text-xs leading-relaxed">
-                <strong className="font-bold text-white uppercase tracking-wider text-[11px] mr-2">
-                  Staff Engineering Operating Contract:
-                </strong>
-                <span className="text-slate-300 font-normal">
-                  Zero micromanagement <span className="text-slate-500 mx-1">•</span> Clean modular PRs with unit tests <span className="text-slate-500 mx-1">•</span> Daily async standup notes <span className="text-slate-500 mx-1">•</span> Available 20-30 hrs/week @ $40/hr.
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs">
+                <span className="font-mono font-bold text-indigo-400 uppercase tracking-wider text-[11px] shrink-0">
+                  Engineering Standards:
                 </span>
+                <span className="text-slate-200 font-medium whitespace-nowrap">Zero Micromanagement</span>
+                <span className="text-slate-600 select-none">•</span>
+                <span className="text-slate-200 font-medium whitespace-nowrap">Modular Tested PRs</span>
+                <span className="text-slate-600 select-none">•</span>
+                <span className="text-slate-200 font-medium whitespace-nowrap">Daily Async Notes</span>
+                <span className="text-slate-600 select-none">•</span>
+                <span className="text-emerald-400 font-medium whitespace-nowrap">Zero-Downtime Deploys</span>
               </div>
             </div>
 
