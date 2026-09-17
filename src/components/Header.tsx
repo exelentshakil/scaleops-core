@@ -122,14 +122,21 @@ export function Header({
                   <ChevronDown className="h-3 w-3 opacity-60 ml-0.5 shrink-0" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56 bg-[var(--color-surface)] border border-[var(--color-border)] p-1.5 shadow-lg">
+              <DropdownMenuContent
+                align="start"
+                onCloseAutoFocus={(e) => e.preventDefault()}
+                className="w-56 bg-[var(--color-surface)] border border-[var(--color-border)] p-1.5 shadow-lg"
+              >
                 {secondaryNavItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = activeSection === item.id;
                   return (
                     <DropdownMenuItem
                       key={item.id}
-                      onClick={() => onNavigate(item.id)}
+                      onSelect={() => {
+                        // Defer navigation slightly so Radix unmount does not abort window smooth scroll
+                        setTimeout(() => onNavigate(item.id), 20);
+                      }}
                       className={`flex items-start gap-2.5 p-2 rounded-md cursor-pointer text-xs ${
                         isActive ? 'bg-[var(--color-panel-subtle)] font-semibold text-indigo-600 dark:text-indigo-400' : 'text-[var(--color-text-primary)]'
                       }`}

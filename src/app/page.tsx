@@ -37,15 +37,22 @@ export default function HomePage() {
       clearTimeout(navTimeoutRef.current);
     }
 
-    const el = document.getElementById(sectionId);
-    if (el) {
-      const headerOffset = 64; // Sticky header height allowance
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = Math.max(0, elementPosition + window.pageYOffset - headerOffset);
+    if (sectionId === 'briefing') {
       window.scrollTo({
-        top: offsetPosition,
+        top: 0,
         behavior: 'smooth',
       });
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        const headerOffset = 64; // Sticky header height allowance
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = Math.max(0, elementPosition + window.scrollY - headerOffset);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
     }
 
     // 3. Release observer lock once smooth scroll completes
@@ -58,8 +65,8 @@ export default function HomePage() {
       window.addEventListener('scrollend', releaseLock, { once: true });
     }
 
-    // Fallback timer (800ms covers standard browser smooth-scroll curve)
-    navTimeoutRef.current = setTimeout(releaseLock, 800);
+    // Fallback timer (1400ms covers full-page smooth-scroll curve)
+    navTimeoutRef.current = setTimeout(releaseLock, 1400);
   };
 
   useEffect(() => {

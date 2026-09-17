@@ -188,17 +188,17 @@ export function ReviewerTour({ onNavigate, onOpenChaosModal }: ReviewerTourProps
                 </div>
               </div>
 
-              {/* Right Side: Big Icon SLA Trust Blurb (Balances Mobile Void, Compact on Desktop) */}
-              <div className="flex flex-col items-center justify-center p-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-b from-emerald-950/40 to-slate-900 border border-emerald-500/30 shadow-xs shrink-0 w-28 sm:w-auto text-center self-stretch sm:self-auto sm:flex-row sm:gap-2">
-                <div className="relative flex h-8 w-8 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 mb-1 sm:mb-0 shrink-0">
-                  <Activity className="h-4 w-4 text-emerald-400" />
+              {/* Right Side: Big Icon SLA Trust Blurb (Balanced Mobile & Pixel-Matched Desktop Height) */}
+              <div className="flex flex-col items-center justify-center p-2.5 sm:px-3 sm:py-0 sm:h-9 rounded-xl sm:rounded-lg bg-gradient-to-b from-emerald-950/40 to-slate-900 border border-emerald-500/30 shadow-xs shrink-0 w-28 sm:w-auto text-center self-stretch sm:self-auto sm:flex-row sm:gap-2.5">
+                <div className="relative flex h-8 w-8 sm:h-6 sm:w-6 items-center justify-center rounded-lg sm:rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 mb-1 sm:mb-0 shrink-0">
+                  <Activity className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-emerald-400" />
                   <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                 </div>
-                <div className="space-y-0.5 sm:space-y-0 sm:text-left">
-                  <div className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider leading-none">
+                <div className="space-y-0.5 sm:space-y-0 sm:text-left flex flex-col justify-center">
+                  <div className="text-[10px] sm:text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider leading-none">
                     Active SLA
                   </div>
                   <div className="text-xs sm:text-[11px] font-mono font-extrabold text-white leading-tight">
@@ -211,13 +211,13 @@ export function ReviewerTour({ onNavigate, onOpenChaosModal }: ReviewerTourProps
               </div>
             </div>
 
-            {/* Action Button: Full-width on mobile, compact on desktop */}
+            {/* Action Button: Pixel-matched h-9, rounded-lg, balanced padding */}
             <Button
               size="sm"
               onClick={onOpenChaosModal}
-              className="h-8 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-xs whitespace-nowrap shrink-0 border border-indigo-500/40 w-full sm:w-auto justify-center"
+              className="h-9 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-xs whitespace-nowrap shrink-0 border border-indigo-500/40 w-full sm:w-auto px-3.5 rounded-lg justify-center inline-flex items-center gap-1.5"
             >
-              <Zap className="h-3.5 w-3.5 mr-1 text-indigo-200" />
+              <Zap className="h-3.5 w-3.5 text-indigo-200 shrink-0" />
               <span>Chaos Injection</span>
             </Button>
           </div>
