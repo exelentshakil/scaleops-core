@@ -1,0 +1,195 @@
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Header } from '@/components/Header';
+import { ReviewerTour } from '@/components/ReviewerTour';
+import { QueueSimulationModule } from '@/components/QueueSimulationModule';
+import { DatabaseOptimizationModule } from '@/components/DatabaseOptimizationModule';
+import { ResilienceModule } from '@/components/ResilienceModule';
+import { AiGatewayModule } from '@/components/AiGatewayModule';
+import { BentoGrid } from '@/components/BentoGrid';
+import { RoiCostCalculator } from '@/components/RoiCostCalculator';
+import { BlueprintExporter } from '@/components/BlueprintExporter';
+import { ChaosSimulatorModal } from '@/components/ChaosSimulatorModal';
+import { AiGovernanceDrawer } from '@/components/AiGovernanceDrawer';
+import { ExecutionLogDrawer } from '@/components/ExecutionLogDrawer';
+import { CommandMenu } from '@/components/CommandMenu';
+import { Footer } from '@/components/Footer';
+
+export default function HomePage() {
+  const [activeSection, setActiveSection] = useState('briefing');
+  const [chaosModalOpen, setChaosModalOpen] = useState(false);
+  const [governanceDrawerOpen, setGovernanceDrawerOpen] = useState(false);
+  const [logsDrawerOpen, setLogsDrawerOpen] = useState(false);
+  const [commandMenuOpen, setCommandMenuOpen] = useState(false);
+
+  // Anti-flicker programmatic navigation lock
+  const isNavigatingRef = useRef(false);
+  const navTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleNavigate = (sectionId: string) => {
+    // 1. Immediately pin target active state so the clicked menu item illuminates instantly
+    setActiveSection(sectionId);
+
+    // 2. Lock observer updates so intermediate sections during smooth scrolling cannot cause menu flickering
+    isNavigatingRef.current = true;
+    if (navTimeoutRef.current) {
+      clearTimeout(navTimeoutRef.current);
+    }
+
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const headerOffset = 64; // Sticky header height allowance
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = Math.max(0, elementPosition + window.pageYOffset - headerOffset);
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+
+    // 3. Release observer lock once smooth scroll completes
+    const releaseLock = () => {
+      isNavigatingRef.current = false;
+      window.removeEventListener('scrollend', releaseLock);
+    };
+
+    if ('onscrollend' in window) {
+      window.addEventListener('scrollend', releaseLock, { once: true });
+    }
+
+    // Fallback timer (800ms covers standard browser smooth-scroll curve)
+    navTimeoutRef.current = setTimeout(releaseLock, 800);
+  };
+
+  useEffect(() => {
+    const sectionIds = [
+      'briefing',
+      'pipeline',
+      'database',
+      'resilience',
+      'ai-gateway',
+      'metrics',
+      'roi',
+      'blueprints',
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Suppress scrollspy during programmatic menu click navigation to prevent intermediate tab flickering
+        if (isNavigatingRef.current) return;
+
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          // Sort by proximity to top of viewport
+          visibleEntries.sort(
+            (a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top)
+          );
+          setActiveSection(visibleEntries[0].target.id);
+        }
+      },
+      { rootMargin: '-15% 0px -60% 0px', threshold: 0.1 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+      if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)]">
+      <Header
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+        onOpenChaosModal={() => setChaosModalOpen(true)}
+        onOpenGovernanceDrawer={() => setGovernanceDrawerOpen(true)}
+        onOpenLogsDrawer={() => setLogsDrawerOpen(true)}
+        onOpenCommandMenu={() => setCommandMenuOpen(true)}
+      />
+
+      <main className="w-full max-w-full min-w-0 overflow-x-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+          <section id="briefing" className="scroll-mt-20">
+            <ReviewerTour
+              onNavigate={handleNavigate}
+              onOpenChaosModal={() => setChaosModalOpen(true)}
+            />
+          </section>
+
+          {/* Core Interactive Backend Engineering Modules */}
+          <section id="pipeline" className="scroll-mt-20">
+            <QueueSimulationModule />
+          </section>
+
+          <section id="database" className="scroll-mt-20">
+            <DatabaseOptimizationModule />
+          </section>
+
+          <section id="resilience" className="scroll-mt-20">
+            <ResilienceModule />
+          </section>
+
+          <section id="ai-gateway" className="scroll-mt-20">
+            <AiGatewayModule />
+          </section>
+
+          {/* Cluster Observability Grid */}
+          <section id="metrics" className="scroll-mt-20">
+            <BentoGrid />
+          </section>
+
+          {/* Infrastructure Right-Sizing & Cloud ROI */}
+          <section id="roi" className="scroll-mt-20">
+            <RoiCostCalculator />
+          </section>
+
+          {/* Systems Blueprints & Docker/Terraform Exporter */}
+          <section id="blueprints" className="scroll-mt-20">
+            <BlueprintExporter />
+          </section>
+        </div>
+      </main>
+
+      <Footer />
+
+      <ChaosSimulatorModal
+        open={chaosModalOpen}
+        onOpenChange={setChaosModalOpen}
+      />
+
+      <AiGovernanceDrawer
+        open={governanceDrawerOpen}
+        onOpenChange={setGovernanceDrawerOpen}
+      />
+
+      <ExecutionLogDrawer
+        open={logsDrawerOpen}
+        onOpenChange={setLogsDrawerOpen}
+      />
+
+      <CommandMenu
+        open={commandMenuOpen}
+        onOpenChange={setCommandMenuOpen}
+        onOpenChaos={() => {
+          setCommandMenuOpen(false);
+          setChaosModalOpen(true);
+        }}
+        onOpenGovernance={() => {
+          setCommandMenuOpen(false);
+          setGovernanceDrawerOpen(true);
+        }}
+        onOpenLogs={() => {
+          setCommandMenuOpen(false);
+          setLogsDrawerOpen(true);
+        }}
+        onNavigate={handleNavigate}
+      />
+    </div>
+  );
+}
