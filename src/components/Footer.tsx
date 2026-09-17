@@ -61,15 +61,34 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Principal Systems Architect Verification */}
+          {/* Principal Systems Architect Verification - Verified Headshot & Identity */}
           <div className="md:col-span-4 space-y-2.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
               Principal Systems Architect
             </h4>
             <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-3.5 space-y-2.5 text-xs">
-              <div className="flex items-center gap-1.5 font-bold text-[var(--color-text-primary)]">
-                <Award className="h-4 w-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
-                <span>Shakil Ahmed</span>
+              <div className="flex items-center gap-3">
+                <div className="relative shrink-0">
+                  <img
+                    src="/headshot.jpeg"
+                    alt="Shakil Ahmed - Principal Systems Architect"
+                    className="h-11 w-11 rounded-xl object-cover ring-2 ring-indigo-500/30 border border-[var(--color-border)] shadow-xs"
+                  />
+                  <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 text-white ring-2 ring-white dark:ring-slate-900 shadow-xs" title="Verified Architect">
+                    <CheckCircle2 className="h-2.5 w-2.5" />
+                  </span>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5 font-bold text-[var(--color-text-primary)] text-sm">
+                    <span>Shakil Ahmed</span>
+                    <span className="inline-flex items-center rounded bg-indigo-50 dark:bg-indigo-950/60 px-1.5 py-0.2 text-[10px] font-mono font-semibold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shrink-0">
+                      Lead
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[var(--color-text-muted)] font-mono truncate">
+                    Autonomous Systems &amp; AI Architect
+                  </p>
+                </div>
               </div>
               <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
                 Former Engineering Team Lead at Legiit. Scaled core backend architecture to $1M ARR across 1,500+ businesses and 1,000,000+ transactions.
